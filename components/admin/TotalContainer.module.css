@@ -1,0 +1,118 @@
+.total_container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4rem;
+}
+
+.total_box__yellow {
+  background: linear-gradient(
+    117.58deg,
+    rgba(215, 237, 237, 0.16) -47.79%,
+    rgba(204, 235, 235, 0) 100%
+  );
+  border-top: 1px solid #ffffff14;
+  border-radius: 12px;
+  padding: 2rem 2rem 2.4rem 2rem;
+  position: relative;
+  color: #ffffff;
+}
+
+.total_box__yellow::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 10rem;
+  height: 6rem;
+  background: radial-gradient(
+    circle at bottom left,
+    rgba(255, 255, 0, 0.04),
+    transparent
+  );
+  border-radius: 0 50% 0 12px;
+}
+
+.total_box__blue {
+  background: linear-gradient(
+    117.58deg,
+    rgba(215, 237, 237, 0.16) -47.79%,
+    rgba(204, 235, 235, 0) 100%
+  );
+  border-top: 1px solid #ffffff14;
+  border-radius: 12px;
+  padding: 2rem 2rem 2.4rem 2rem;
+  position: relative;
+  color: #ffffff;
+}
+
+.total_box__blue::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 10rem;
+  height: 6rem;
+  background: radial-gradient(
+    circle at bottom left,
+    rgba(0, 0, 255, 0.04),
+    transparent
+  );
+  border-radius: 0 50% 0 12px;
+}
+.total_box__red {
+  background: linear-gradient(
+    117.58deg,
+    rgba(215, 237, 237, 0.16) -47.79%,
+    rgba(204, 235, 235, 0) 100%
+  );
+  border-top: 1px solid #ffffff14;
+  border-radius: 12px;
+  padding: 2rem 2rem 2.4rem 2rem;
+  position: relative;
+  color: #ffffff;
+}
+
+.total_box__red::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 10rem;
+  height: 6rem;
+  background: radial-gradient(
+    circle at bottom left,
+    rgba(255, 0, 0, 0.04),
+    transparent
+  );
+  border-radius: 0 50% 0 12px;
+}
+
+.number_row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.number {
+  font-size: 2.6rem !important;
+  line-height: 4rem;
+  font-size: 0.15px;
+  color: #ffffff;
+}
+
+.subtext {
+  font-size: 1.6rem !important;
+  line-height: 2.4rem;
+  font-size: 0.15px;
+  color: #ffffff;
+}
+
+@media (max-width: 750px) {
+  .total_container {
+    display: flex;
+    flex-direction: column;
+
+    width: 90%;
+    margin: 0 auto;
+  }
+}

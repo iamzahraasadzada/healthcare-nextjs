@@ -1,0 +1,12 @@
+.admin_btn {
+  color: #24ae7c;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.admin_btn:hover {
+  color: #65c6a3;
+}

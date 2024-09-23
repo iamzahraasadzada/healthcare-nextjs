@@ -1,0 +1,106 @@
+.form_container {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+}
+
+.form_header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.form_header h1 {
+  font-size: 3.6rem;
+  line-height: 4.4rem;
+  color: #fff;
+}
+
+.form_header p {
+  color: #abb8c4;
+  font-weight: 500;
+  font-size: 1.8rem;
+  line-height: 2.8rem;
+}
+
+.patient_form {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.form_row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  position: relative;
+}
+
+.form_row label {
+  color: #abb8c4;
+}
+
+.form_row input {
+  background-color: #1a1d21 !important;
+  color: #fff;
+  border: 1px solid #363a3d;
+  border-radius: 6px;
+  padding: 0.6rem 0.2rem 0.6rem 4rem;
+}
+
+.form_row input:-internal-autofill-selected {
+  background-color: #1a1d21 !important;
+}
+
+.form_row input::placeholder {
+  color: #76828d;
+}
+
+.icon_ph {
+  color: #fff;
+  position: absolute;
+  top: 73%;
+  left: 4%;
+}
+
+.icon_pr {
+  color: #fff;
+  position: absolute;
+  top: 62%;
+  left: 4%;
+}
+
+.icon_pe {
+  color: #fff;
+  position: absolute;
+  top: 62%;
+  left: 4%;
+}
+
+.button {
+  background-color: #24ae7c;
+  color: #fff;
+  padding: 0.8rem 2.4rem;
+  border-radius: 8px;
+  border: none;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #209c6f;
+}
+
+.loading_btn {
+  background-color: #2a2d2f;
+  color: #898a8c;
+  cursor: not-allowed;
+}
+
+.loading_btn:hover {
+  background-color: #2a2d2f !important;
+}
+
+.num_span {
+  color: #778089;
+}

@@ -1,0 +1,98 @@
+.passkey_modal__container {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  backdrop-filter: blur(3px);
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.passkey_modal {
+  background-color: #1a1d21f5;
+  padding: 4rem 4rem 5rem 4rem;
+  border-top: 1px solid #ffffff14;
+  border-radius: 16px;
+  box-shadow: 0px 8px 12px 0px #ffffff0a inset;
+  box-shadow: 0px 24px 64px -16px #0000003d;
+  box-shadow: 16px 24px 64px -24px #ffffff0a inset;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4rem;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.6rem;
+}
+
+.col p {
+  color: #abb8c4;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  letter-spacing: 0.15px;
+}
+
+.col2 {
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+}
+
+.col2 h2 {
+  font-size: 2.4rem;
+  line-height: 3.2rem;
+}
+
+.close_button {
+  margin-left: auto;
+  width: 2.4rem;
+  height: 2.4rem;
+  cursor: pointer;
+}
+
+.col textarea {
+  background-color: #1a1d21 !important;
+  color: #fff;
+  border: 1px solid #363a3d;
+  border-radius: 6px;
+  resize: none;
+  padding: 1.2rem;
+  width: 100%;
+}
+
+.decline_button {
+  padding: 1rem 2.4rem;
+  background-color: #f24e43;
+  color: #ffffff;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  letter-spacing: 0.15px;
+  border-radius: 8px;
+  border: none;
+  transition: all 0.2s ease-in;
+}
+
+.decline_button:hover {
+  background-color: #c13e35;
+}
