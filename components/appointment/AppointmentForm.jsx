@@ -1,8 +1,7 @@
 "use client";
-import { set, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import styles from "./AppointmentForm.module.css";
 import { createAppointment } from "@/lib/actions/createAppointment";
-import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import { doctors } from "@/lib/utils";
 import { useQuery } from "@tanstack/react-query";
@@ -16,19 +15,33 @@ function AppointmentForm() {
   const { register, handleSubmit } = useForm();
   const router = useRouter();
 
-  const { data } = useQuery({
+  const { data, isLoading, error } = useQuery({
     queryKey: ["patient_info"],
     queryFn: () => getPatientById(patientID),
   });
 
+  if (isLoading) {
+    return <div>Loading patient information...</div>;
+  }
+
+  if (error) {
+    return <div>Error loading patient information: {error.message}</div>;
+  }
+
   async function onSubmit(e) {
     setLoading(true);
-    const newAppointment = await createAppointment({
-      ...e,
-      patient: data.fullName,
-      patientId: patientID,
-    });
-    router.push(`/appointment/success?appointmentId=${newAppointment.$id}`);
+    try {
+      const newAppointment = await createAppointment({
+        ...e,
+        patient: data?.fullName,
+        patientId: patientID,
+      });
+      router.push(`/appointment/success?appointmentId=${newAppointment.$id}`);
+    } catch (error) {
+      console.error("Error creating appointment:", error);
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -55,7 +68,7 @@ function AppointmentForm() {
             <textarea
               {...register("reason")}
               id="reason"
-              placeholder="ex: Annual montly check-up"
+              placeholder="ex: Annual monthly check-up"
             ></textarea>
           </div>
           <div className={styles.form_col}>
