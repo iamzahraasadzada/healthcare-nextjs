@@ -6,7 +6,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { doctors } from "@/lib/utils";
 import { useQuery } from "@tanstack/react-query";
 import { getPatientById } from "@/lib/actions/createUser";
-import { useState } from "react";
+import { useState, Suspense } from "react";
 
 function AppointmentForm() {
   const [loading, setLoading] = useState(false);
@@ -102,4 +102,12 @@ function AppointmentForm() {
   );
 }
 
-export default AppointmentForm;
+export function AppointmentFormWrapper() {
+  return (
+    <Suspense fallback={<div>Loading form...</div>}>
+      <AppointmentForm />
+    </Suspense>
+  );
+}
+
+export default AppointmentFormWrapper;

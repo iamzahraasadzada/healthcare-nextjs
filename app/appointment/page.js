@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import styles from "./page.module.css";
-import AppointmentForm from "@/components/appointment/AppointmentForm";
+import { AppointmentFormWrapper } from "@/components/appointment/AppointmentForm";
 import Logo from "@/ui/Logo";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
@@ -26,7 +26,7 @@ function Page() {
             <p>Request a new appointment in 10 seconds</p>
           </div>
           <QueryClientProvider client={queryClient}>
-            <AppointmentForm />
+            <AppointmentFormWrapper />
           </QueryClientProvider>
         </div>
         <div className={styles.right_side}>
