@@ -15,11 +15,6 @@ import { getPatinets, getUsers } from "@/lib/actions/createUser";
 function DeclineModal({ setOpen, data }) {
   const queryClient = useQueryClient();
 
-  const { setOpenModal, changeStatus } = store((state) => ({
-    setOpenModal: state.setOpenModal,
-    changeStatus: state.changeStatus,
-  }));
-
   const [selectedReason, setSelectedReason] = useState("");
 
   const { data: doctorData } = useQuery({
@@ -31,6 +26,11 @@ function DeclineModal({ setOpen, data }) {
     queryKey: ["patinet_data"],
     queryFn: getPatinets,
   });
+
+  const { setOpenModal, changeStatus } = store((state) => ({
+    setOpenModal: state.setOpenModal,
+    changeStatus: state.changeStatus,
+  }));
 
   const userIda = patient?.documents.filter((p) => p.$id === data?.patientId);
 

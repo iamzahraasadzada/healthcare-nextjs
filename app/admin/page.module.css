@@ -8,9 +8,13 @@
   overflow: hidden !important;
 }
 
-.header {
+.header_container {
   max-width: 140rem;
-  margin: 1.5rem 4rem;
+  margin: 0 auto;
+  padding: 1.5rem 4rem;
+}
+
+.header {
   display: flex;
   align-items: center;
   background-color: #0b0d0f;
@@ -40,7 +44,7 @@
   flex-direction: column;
   justify-content: center;
   gap: 3.8rem;
-  padding: 0rem 6rem;
+  padding: 0rem 3rem;
 }
 
 .header_text {

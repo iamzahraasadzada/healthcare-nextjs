@@ -9,6 +9,14 @@ import TotalContainer from "@/components/admin/TotalContainer";
 import LoadingFullpage from "@/ui/LoadingFullpage";
 import { store } from "@/Store";
 
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 0,
+    },
+  },
+});
+
 function Admin() {
   const [loading, setLoading] = useState(true);
 
@@ -16,14 +24,13 @@ function Admin() {
     isModalOpened: state.isModalOpened,
   }));
 
-  const queryClient = new QueryClient({
-    defaultOptions: {
-      queries: {
-        staleTime: 0,
-      },
-    },
-  });
+  const toggleModal = store((state) => state.toggleModal);
+
   const router = useRouter();
+
+  useEffect(() => {
+    toggleModal(false);
+  }, [toggleModal]);
 
   useEffect(() => {
     const validateToken = async () => {
@@ -65,8 +72,10 @@ function Admin() {
         isModalOpened ? styles.stop_scroll : ""
       }`}
     >
-      <div className={styles.header}>
-        <Logo />
+      <div className={styles.header_container}>
+        <div className={styles.header}>
+          <Logo />
+        </div>
       </div>
       <div className={styles.container}>
         <div className={styles.header_text}>

@@ -17,16 +17,25 @@ function TotalContainer() {
     queryKey: ["doctor_data"],
     queryFn: getDoctor,
   });
+
   useEffect(() => {
     const scheduledAppointment = doctorData?.documents.filter(
       (d) => d.status === "Scheduled"
     )?.length;
-    if (scheduledAppointment) setAccapted(scheduledAppointment);
+    if (scheduledAppointment) {
+      setAccapted(scheduledAppointment);
+    } else {
+      setAccapted(0);
+    }
 
     const cancledAppointment = doctorData?.documents.filter(
       (d) => d.status === "Canceled"
     )?.length;
-    if (cancledAppointment) setCancled(cancledAppointment);
+    if (cancledAppointment) {
+      setCancled(cancledAppointment);
+    } else {
+      setCancled(0);
+    }
   }, [doctorData?.documents]);
 
   return (

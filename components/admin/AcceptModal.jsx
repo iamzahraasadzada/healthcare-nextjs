@@ -15,7 +15,9 @@ import { convertDate } from "@/lib/utils";
 
 function AcceptModal({ setOpen, data }) {
   const queryClient = useQueryClient();
+
   const [selectedDate, setSelectedDate] = useState("");
+
   const { data: doctorData } = useQuery({
     queryKey: ["doctor_data"],
     queryFn: getDoctor,
@@ -136,6 +138,7 @@ function AcceptModal({ setOpen, data }) {
                 type="date"
                 name="date"
                 id="date"
+                min={new Date().toISOString().split("T")[0]}
               />
             </div>
           </div>

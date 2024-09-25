@@ -39,8 +39,6 @@ function AppointmentForm() {
       router.push(`/appointment/success?appointmentId=${newAppointment.$id}`);
     } catch (error) {
       console.error("Error creating appointment:", error);
-    } finally {
-      setLoading(false);
     }
   }
 

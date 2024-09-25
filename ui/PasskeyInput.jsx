@@ -2,13 +2,12 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./PasskeyInput.module.css";
 import { useRouter } from "next/navigation";
-import { store } from "@/Store";
 
 function PasskeyInput() {
   const inputRefs = useRef([]);
   const [otpValues, setOtpValues] = useState(new Array(6).fill(""));
   const router = useRouter();
-  const toggleModal = store((state) => state.toggleModal);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const otpInputs = inputRefs.current;
@@ -54,6 +53,7 @@ function PasskeyInput() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const passkey = otpValues.join("");
+    setLoading(true);
 
     try {
       const res = await fetch("/api/login", {
@@ -72,7 +72,6 @@ function PasskeyInput() {
       if (data.success) {
         localStorage.setItem("token", data.token);
         router.push("/admin");
-        toggleModal(false);
       } else {
         setError("Yanlış passkey!");
       }
@@ -106,8 +105,14 @@ function PasskeyInput() {
           />
         ))}
       </div>
-      <button type="submit" className={styles.passkey_button}>
-        Enter admin panel
+      <button
+        type="submit"
+        disabled={loading}
+        className={`${styles.passkey_button} ${
+          loading ? styles.loading_btn : ""
+        }`}
+      >
+        {loading ? "...loading" : "Enter admin panel"}
       </button>
     </form>
   );

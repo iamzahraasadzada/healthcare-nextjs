@@ -35,6 +35,16 @@
   border: none;
 }
 
+.loading_btn {
+  background-color: #2a2d2f;
+  color: #898a8c;
+  cursor: not-allowed;
+}
+
+.loading_btn:hover {
+  background-color: #2a2d2f !important;
+}
+
 @media (max-width: 1000px) {
   .input_container {
     flex-direction: column;
